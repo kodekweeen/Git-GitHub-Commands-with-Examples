@@ -1,0 +1,224 @@
+
+UserID ~/Desktop
+$ git -v (returns the version of Git)
+git version 2.43.0.windows.1
+
+UserID ~/Desktop
+$ mkdir gitpython (Makes a new directory as gitpython (FolderName)
+
+UserID ~/Desktop
+$ cd gitpython/ (Moving to the newly created directory)
+
+UserID ~/Desktop/gitpython
+$ ls -la   (Listing the Files and Folders in the directory - in this case has none)
+
+
+UserID ~/Desktop/gitpython
+$ git clone https://github.com/kodekweeen/tic-tac-toe python_ttt  (Cloning the Repository from the GitHub as per the desire in out Python_ttt Folder)
+Cloning into 'python_ttt'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+
+UserID ~/Desktop/gitpython
+$ cd python_ttt  (Moving to the newly created diectory0
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ ls -la  (Listing the files it has)
+total 13
+drwxr-xr-x 1 Smritee 197609    0 Jan 10 22:47  ./
+drwxr-xr-x 1 Smritee 197609    0 Jan 10 22:47  ../
+drwxr-xr-x 1 Smritee 197609    0 Jan 10 22:47  .git/
+-rw-r--r-- 1 Smritee 197609   28 Jan 10 22:47  README.md
+-rw-r--r-- 1 Smritee 197609 5673 Jan 10 22:47 'Tic Tac Toe.py'
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git status  (Getting the status of the directory)
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+UserID ~/Desktop/gitpython
+$ cd python_ttt/
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git add tic-tac-toe-2
+fatal: pathspec 'tic-tac-toe-2' did not match any files
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean
+
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git commit -m "trying to commit - initial" (1st commit to the main after creating a new branch/file in the directory)
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:   
+  (use "git add <file>..." to include in what will be committed)
+        Tic Tac Toe 2.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git add Tic-Tac-Toe-2.py (Untracked files need to be add and pushed)
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git commit -m "trying to commit - initial"  (Commiting new files and changes)
+[main a7511f8] trying to commit - initial
+ 1 file changed, 187 insertions(+)
+ create mode 100644 Tic-Tac-Toe-2.py
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git status  (Returns the status)
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git push origin main  (Pushing the changes to main after commit)
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.75 KiB | 1.75 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/kodekweeen/tic-tac-toe
+   0492c73..a7511f8  main -> main
+
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git diff Tic-Tac-Toe-2.py   (Tracking changes on the .py file, + = Things added, - = Things deleted)
+diff --git a/Tic-Tac-Toe-2.py b/Tic-Tac-Toe-2.py
+index aceda8b..8e72057 100644
+--- a/Tic-Tac-Toe-2.py
++++ b/Tic-Tac-Toe-2.py
+@@ -174,6 +174,8 @@ if __name__ == "__main__":
+         # Stores the winner in a single game of Tic Tac Toe
+         winner = single_game(options[choice-1])
+
++
++
+         # Edits the scoreboard according to the winner
+         if winner != 'D' :
+             player_won = player_choice[winner]
+@@ -184,4 +186,4 @@ if __name__ == "__main__":
+         if cur_player == playerA:
+             cur_player = playerB
+         else:
+-            cur_player = playerA
+\ No newline at end of file
++            cur_player = playerA
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git status  (Getting the status again)
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Tic-Tac-Toe-2.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git add Tic-Tac-Toe-2.py  (Staging/adding the file to commit)
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git commit -m "Next Commit"  (Commit again)
+[main 23c1977] Next Commit
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git status  (Get the status again)
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 289 bytes | 289.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/kodekweeen/tic-tac-toe
+   a7511f8..23c1977  main -> main
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ git log  (Returns the changes in the repository we have cloned)
+commit 23c1977a83f20fef58065e58fc34daf42a87a6db (HEAD -> main, origin/main, origin/HEAD)
+Author: KodeKweeen <smriteeneu@gmail.com>
+Date:   Wed Jan 10 23:20:57 2024 +0545
+
+    Next Commit
+
+commit a7511f80a3a5fac51cf9180e9470bf7e82ba156e
+Author: KodeKweeen <smriteeneu@gmail.com>
+Date:   Wed Jan 10 23:10:05 2024 +0545
+
+    trying to commit - initial
+
+commit 0492c73cc8fca0f0abb86d2aa1564777348d8b20
+Author: Kweeen <156119378+kodekweeen@users.noreply.github.com>
+Date:   Wed Jan 10 08:41:40 2024 -0800
+
+    Add files via upload
+
+commit e37229b3325132117e6cfcf74470d34d071bf6f8
+Author: Kweeen <156119378+kodekweeen@users.noreply.github.com>
+Date:   Wed Jan 10 22:26:09 2024 +0545
+
+    Initial commit
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ checkout - to undo, or restore the previous commit version.
+bash: checkout: command not found
+
+
+$ git log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'  (More Sophisticated version of Log)
+* 23c1977                       Next Commit                       (HEAD -> main, origin/main, origin/HEAD) [KodeKweeen] Wed Jan 10 23:20:57 2024
+|
+* a7511f8               trying to commit - initial                [KodeKweeen] Wed Jan 10 23:10:05 2024
+|
+* 0492c73                  Add files via upload                   [Kweeen] Wed Jan 10 22:26:40 2024
+|
+* e37229b                     Initial commit                      [Kweeen] Wed Jan 10 22:26:09 2024
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$ more to learn - Branching
+
+Merging
+
+Rebasing
+
+Resolving Conflicts
+
+Forking
+
+Pull Requests
+
+and more!
+bash: more: command not found
+bash: Merging: command not found
+bash: Rebasing: command not found
+bash: Resolving: command not found
+bash: Forking: command not found
+bash: Pull: command not found
+bash: and: command not found
+
+UserID ~/Desktop/gitpython/python_ttt (main)
+$
